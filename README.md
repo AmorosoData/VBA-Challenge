@@ -1,9 +1,9 @@
-# VBA-Challenge
-VBA Homework - I was unable to loop through each worksheet in a for loop within my script so had to run script with each worksheet
-
-
 Sub alphabetical_test()
+For Each ws In Worksheets
+Dim WorksheetsName As String
+WorksheetName = ws.Name
 
+Sheets(ws.Name).Select
 'name variables
 Dim open_amt As Variant
 Dim close_amt As Variant
@@ -91,5 +91,35 @@ Cells(j, 12).Value = volume_total
 Columns("I:Q").EntireColumn.AutoFit
 Cells(1, 1).Select
 
+Next ws
 
 End Sub
+
+Sub reset()
+
+For Each ws In Worksheets
+Dim WorksheetName As String
+WorksheetName = ws.Name
+
+Sheets(ws.Name).Select
+
+
+Columns("I:Q").Select
+Selection.Clear
+
+Columns("I:Q").EntireColumn.AutoFit
+    Cells(1, 1).Select
+
+        Next ws
+
+End Sub
+
+
+
+
+
+
+
+
+
+
